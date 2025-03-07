@@ -1,7 +1,11 @@
-export default function Home() {
+import { callOpenAI } from "./lib/openai";
+
+export default async function Home() {
+	const message = await callOpenAI([{ role: "user", content: "Hello!" }]);
+
 	return (
 		<main>
-			<div>Hello world!</div>
+			<div>{message}</div>
 		</main>
 	);
 }
