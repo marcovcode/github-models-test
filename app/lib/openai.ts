@@ -1,3 +1,5 @@
+"use server";
+
 import OpenAI from "openai";
 
 interface ChatMessage {
@@ -20,5 +22,5 @@ export async function callOpenAI(messages: ChatMessage[]) {
 		model: modelName,
 	});
 
-	return response.choices[0].message.content;
+	return response.choices[0].message.content!;
 }
